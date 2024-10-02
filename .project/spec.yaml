@@ -90,7 +90,11 @@ execution:
     gpu:
       requested: 1
     sharedMemoryMB: 1024
-  secrets: []
+  secrets:
+  - variable: HUGGINGFACE_KEY
+    description: The Hugging Face Key
+  - variable: OPENAI_KEY
+    description: This is the OPEN AI Key
   mounts:
   - type: project
     target: /project/
