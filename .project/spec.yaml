@@ -98,6 +98,15 @@ execution:
     logfile_path: ""
     timeout_seconds: 120
     icon_url: ""
+  - name: FastAPI App
+    type: fastapi
+    class: native
+    start_command: "uvicorn main:app --host 0.0.0.0 --port 8000"
+    health_check_command: "curl -f http://localhost:8000/health || exit 1"
+    stop_command: "pkill -f 'uvicorn main:app'"
+    user_msg: "FastAPI app is running"
+    logfile_path: "/var/log/fastapi_app.log"
+    timeout_seconds: 120
   resources:
     gpu:
       requested: 1
